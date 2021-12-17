@@ -9,7 +9,8 @@ export default function GuestBook() {
   const { user, setUser } = useUser();
 
   function updateGuestName() {
-    if (!guestEntry) return setUser(name);
+    if (!guestEntry) return;
+    setUser(name);
     setEntries([...entries, { name, message: guestEntry }]);
     setGuestEntry('');
   }
@@ -21,7 +22,7 @@ export default function GuestBook() {
   const guestNameInput = (
     <div>
       <div>
-        <label className="labelText">Guest Name</label>
+        <label>Guest Name</label>
       </div>
       <div>
         <input
@@ -46,7 +47,7 @@ export default function GuestBook() {
         {user ? null : guestNameInput}
         <div>
           <div>
-            <label className="labeltext">Guest Entry</label>
+            <label>Guest Entry</label>
           </div>
           <div>
             <textarea
