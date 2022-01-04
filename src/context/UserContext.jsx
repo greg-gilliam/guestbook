@@ -14,7 +14,6 @@ const UserProvider = ({ children }) => {
 
 const useUser = () => {
   const context = useContext(UserContext);
-  console.log('$$$', context);
   if (context === undefined) {
     throw new Error(
       'useUser hook must be called within a UserContext Provider'
