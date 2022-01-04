@@ -1,28 +1,32 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useEntries } from '../../context/EntryContext';
 import { useUser } from '../../context/UserContext';
 
 export default function GuestBook() {
   const [name, setName] = useState('');
   const [guestEntry, setGuestEntry] = useState('');
-  const { entries, setEntries } = useEntries();
   const { user, setUser } = useUser();
+  const { entries, setEntries } = useEntries();
 
-  function updateGuestName() {
-    if (!guestEntry) return;
-    setUser(name);
-    setEntries([...entries, { name, message: guestEntry }]);
-    setGuestEntry('');
+  function updateGuestList() {
+    if (!guestEntry) {
+      alert('Please write an entry!');
+    } else {
+      console.log('!!!', name);
+      setUser(name);
+      setEntries([...entries, { name, message: guestEntry }]);
+      setGuestEntry('');
+    }
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateGuestName();
+    updateGuestList();
   };
 
   const guestNameInput = (
     <div>
       <div>
-        <label>Guest Name</label>
+        <label htmlFor="guestName">Guest Name</label>
       </div>
       <div>
         <input

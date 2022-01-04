@@ -1,19 +1,16 @@
+import React from 'react';
 import { useUser } from '../../context/UserContext';
 
-const Header = () => {
+export default function Header() {
   const { user } = useUser();
 
   return (
     <header>
       {user ? (
-        <p>
-          You are signing the guestbook as <span>{user}</span>
-        </p>
+        <p>You are signing the guestbook as {user}</p>
       ) : (
         <p>Please sign in!</p>
       )}
     </header>
   );
-};
-
-export default Header;
+}
