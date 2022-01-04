@@ -7,12 +7,12 @@ export default function GuestBook() {
   const [guestEntry, setGuestEntry] = useState('');
   const { user, setUser } = useUser();
   const { entries, setEntries } = useEntries();
-
+  console.log('###', useUser);
   function updateGuestList() {
     if (!guestEntry) {
       alert('Please write an entry!');
     } else {
-      console.log('!!!', name);
+      console.log('!!!', setUser);
       setUser(name);
       setEntries([...entries, { name, message: guestEntry }]);
       setGuestEntry('');
@@ -51,7 +51,7 @@ export default function GuestBook() {
         {user ? null : guestNameInput}
         <div>
           <div>
-            <label>Guest Entry</label>
+            <label htmlFor="guestEntry">Guest Entry</label>
           </div>
           <div>
             <textarea

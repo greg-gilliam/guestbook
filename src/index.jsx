@@ -3,11 +3,14 @@ import App from './App';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { UserProvider } from './context/UserContext';
+import { EntryProvider } from './context/EntryContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <UserProvider>
-      <App />
+      <EntryProvider>
+        <App />
+      </EntryProvider>
     </UserProvider>
   </React.StrictMode>,
   document.getElementById('root')
