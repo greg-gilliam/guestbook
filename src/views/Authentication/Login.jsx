@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 import { useUser } from '../../context/UserContext';
-import { useForm } from '../../hooks/useForm';
+import useForm from '../../hooks/useForm';
 
 export default function Login() {
   const history = useHistory();
