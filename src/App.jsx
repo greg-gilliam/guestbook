@@ -4,9 +4,20 @@ import Layout from './views/Layout/Layout';
 
 function App() {
   return (
-    <Layout>
-      <Home />
-    </Layout>
+    <ProvideAuth>
+      <Router>
+        <Layout>
+          <Switch>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <PrivateRoutes exact path="/">
+              <Home />
+            </PrivateRoutes>
+          </Switch>
+        </Layout>
+      </Router>
+    </ProvideAuth>
   );
 }
 
