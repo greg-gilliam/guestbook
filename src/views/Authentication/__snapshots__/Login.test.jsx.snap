@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the login page 1`] = `
+<div>
+  <fieldset>
+    <legend>
+      Sign in
+    </legend>
+    <form>
+      <label
+        for="username"
+      >
+        Username
+      </label>
+      <input
+        id="username"
+        name="username"
+        type="text"
+        value=""
+      />
+      <label
+        for="password"
+      >
+        Password
+      </label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        value=""
+      />
+      <button
+        aria-label="sign in"
+        type="submit"
+      >
+        Sign in!
+      </button>
+    </form>
+  </fieldset>
+</div>
+`;
