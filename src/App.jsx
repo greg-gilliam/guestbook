@@ -2,14 +2,14 @@ import React from 'react';
 import Home from './views/Home/Home';
 import Layout from './views/Layout/Layout';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import ProvideAuth from './context/ProvideAuth';
+import { ProvideAuth } from './context/ProvideAuth';
 import PrivateRoutes from './components/PrivateRoutes/PrivateRoutes';
 import Login from './views/Authentication/Login';
 
 function App() {
   return (
-    <ProvideAuth>
-      <Router>
+    <Router>
+      <ProvideAuth>
         <Layout>
           <Switch>
             <Route path="/login">
@@ -20,8 +20,8 @@ function App() {
             </PrivateRoutes>
           </Switch>
         </Layout>
-      </Router>
-    </ProvideAuth>
+      </ProvideAuth>
+    </Router>
   );
 }
 

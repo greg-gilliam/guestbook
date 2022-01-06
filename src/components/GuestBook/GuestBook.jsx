@@ -3,7 +3,6 @@ import { useEntries } from '../../context/EntryContext';
 import { useUser } from '../../context/UserContext';
 
 export default function GuestBook() {
-  const [name, setName] = useState('');
   const [guestEntry, setGuestEntry] = useState('');
   const { user, setUser } = useUser();
   const { entries, setEntries } = useEntries();
@@ -11,8 +10,7 @@ export default function GuestBook() {
     if (!guestEntry) {
       alert('Please write an entry!');
     } else {
-      setUser(name);
-      setEntries([...entries, { name, message: guestEntry }]);
+      setEntries([...entries, { name: user, message: guestEntry }]);
       setGuestEntry('');
     }
   }
@@ -20,23 +18,6 @@ export default function GuestBook() {
     event.preventDefault();
     updateGuestList();
   };
-
-  const guestNameInput = (
-    <div>
-      <div>
-        <label htmlFor="guestName">Guest Name</label>
-      </div>
-      <div>
-        <input
-          id="guestName"
-          type="text"
-          placeholder="Guest Name..."
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
-      </div>
-    </div>
-  );
 
   const displayMessage = user
     ? `Thanks for signing the guestbook ${user}!`
@@ -46,7 +27,6 @@ export default function GuestBook() {
     <>
       <h1>{displayMessage}</h1>
       <form onSubmit={handleSubmit}>
-        {user ? null : guestNameInput}
         <div>
           <div>
             <label htmlFor="guestEntry">Guest Entry</label>
@@ -66,10 +46,8 @@ export default function GuestBook() {
           </button>
           {user && (
             <button
-              type="button"
               onClick={() => {
                 setUser('');
-                setName('');
               }}
             >
               Not {user}? Click here!
